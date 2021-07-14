@@ -1,6 +1,7 @@
 package ru.otus.proxy;
 
-/*import ru.otus.annotations.Log;
+
+import ru.otus.annotations.Log;
 import ru.otus.domain.Constants;
 import ru.otus.utils.ReflectionUtils;
 
@@ -12,11 +13,11 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public abstract class Ioc {
+public abstract class IOC {
 
     private static final Set<String> methodsForLogging = new HashSet<>();
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("logger")
     public static <T> T getInstance(final T obj) {
         final Class<?> clazz = obj.getClass();
         final Method[] methods = clazz.getMethods();
@@ -26,11 +27,11 @@ public abstract class Ioc {
             throw new IllegalArgumentException("Not found annotation: " + Log.class.getCanonicalName());
         }
 
-        final Set<String> namesAndParams = annotatedMethods.stream().map(ReflectionUtils::extractNameAndParams).collect(Collectors.toSet());
+        final Set<String> paramsAndNames = annotatedMethods.stream().map(ReflectionUtils::extractNameAndParams).collect(Collectors.toSet());
 
-        methodsForLogging.addAll(namesAndParams);
+        methodsForLogging.addAll(paramsAndNames);
 
-        return (T) Proxy.newProxyInstance(Ioc.class.getClassLoader(), clazz.getInterfaces(), new LogInvocationHandler<>(obj));
+        return (T) Proxy.newProxyInstance(IOC.class.getClassLoader(), clazz.getInterfaces(), new LogInvocationHandler<>(obj));
     }
 
     private static <T> void printMethodInfo(final T instance, final Method method, final Object[] args) throws Exception {
@@ -52,9 +53,9 @@ public abstract class Ioc {
 
         @Override
         public Object invoke(final Object proxy, final Method method, final Object[] args) throws Throwable {
-            final String nameAndParams = ReflectionUtils.extractNameAndParams(method);
+            final String paramsAndNames = ReflectionUtils.extractParamsAndNames(method);
 
-            if (methodsForLogging.contains(nameAndParams)) {
+            if (methodsForLogging.contains(paramsAndNames)) {
                 printMethodInfo(instance, method, args);
             }
 
@@ -63,46 +64,3 @@ public abstract class Ioc {
     }
 }
 
- */
-import ru.otus.calculators.Calculator;
-import ru.otus.calculators.impl.Addition;
-
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-
-public class Ioc {
-
-    private Ioc() {
-    }
-
-    static MyClassInterface createMyClass() {
-        InvocationHandler handler = new DemoInvocationHandler(new MyClassImpl());
-        return (MyClassInterface) Proxy.newProxyInstance(Ioc.class.getClassLoader(),
-                new Class<?>[]{MyClassInterface.class}, handler);
-    }
-
-    public static Calculator getInstance(Addition addition) {
-    }
-
-    static class DemoInvocationHandler implements InvocationHandler {
-        private final MyClassInterface myClass;
-
-        DemoInvocationHandler(MyClassInterface myClass) {
-            this.myClass = myClass;
-        }
-
-        @Override
-        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-            System.out.println("invoking method:" + method);
-            return method.invoke(myClass, args);
-        }
-
-        @Override
-        public String toString() {
-            return "DemoInvocationHandler{" +
-                    "myClass=" + myClass +
-                    '}';
-        }
-    }
-}
