@@ -10,12 +10,12 @@ import java.util.stream.Collectors;
 public class ReflectionUtils {
 
     public static Set<Method> filterMethodsByAnnotation(final Method[] methods, final Class<? extends Annotation> annotation) {
-        final Predicate<Method> predicate = (method) -> method.isAnnotationPresent(annotation);
+        final Predicate<Method> pred = (method) -> method.isAnnotationPresent(annotation);
 
-        return Arrays.stream(methods).filter(predicate).collect(Collectors.toSet());
+        return Arrays.stream(methods).filter(pred).collect(Collectors.toSet());
     }
 
-    public static String extractNameAndParams(final Method method) {
+    public static String extractParamsAndNames(final Method method) {
         return method.getName() + Arrays.toString(method.getParameters());
     }
 }
