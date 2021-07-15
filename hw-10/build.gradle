@@ -1,0 +1,23 @@
+plugins {
+    //support Idea IDE
+    id 'idea'
+    id "io.spring.dependency-management" version "1.0.11.RELEASE"
+    // Build uber-jar
+    id 'com.github.johnrengelman.shadow' version '6.1.0' apply false
+}
+
+sourceCompatibility = JavaVersion.VERSION_15
+targetCompatibility = JavaVersion.VERSION_15
+
+dependencies {
+}
+
+shadowJar {
+    archiveBaseName.set('hwOtus05')
+    archiveVersion.set('0.1')
+    manifest {
+        attributes 'Main-Class': 'ru.otus.Main'
+    }
+}
+
+tasks.build.dependsOn tasks.shadowJar
