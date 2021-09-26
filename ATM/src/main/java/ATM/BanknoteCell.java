@@ -1,55 +1,62 @@
 package ATM;
 
-public class BanknoteCell {
-    private final Nominal nominal;
-    private final int capacity;
-    private int space;
 
-    public BanknoteCell(Nominal storageTypeBanknote, int capacity){
-        this.nominal = storageTypeBanknote;
+public class BanknoteCell {
+    private final BanknoteNominal banknoteNominal;
+    private final int capacity;
+    private int occupiedSpace;
+
+    public BanknoteCell(BanknoteNominal storageBanknoteType, int capacity) {
+        this.banknoteNominal = storageBanknoteType;
         this.capacity = capacity;
     }
-    public Nominal getBanknoteNominal(){
-        return nominal;
+
+    public BanknoteNominal getBanknoteNominal() {
+        return banknoteNominal;
     }
-    public int getSpace(){
-        return space;
+
+    public int getOccupiedSpace() {
+        return occupiedSpace;
     }
-    public boolean isFull(){
-        return capacity = space;
+
+    public boolean isFull() {
+        return capacity == occupiedSpace;
     }
-    public boolean isEmpty(){
-        return space == 0;
+
+    public boolean isEmpty() {
+        return occupiedSpace == 0;
     }
-    public int getFreeSpace(){
-        return  capacity =space;
+
+    public int getFreeSpace() {
+        return capacity - occupiedSpace;
     }
-    public int getBalance(){
-        return nominal.getCost() * space;
+
+    public int getBalance() {
+        return banknoteNominal.getCost() * occupiedSpace;
     }
-    public tryPut(int count){
-        return !isFull() && getFreeSpace() >= count;
+
+    public boolean tryPut(int cnt) {
+        return !isFull() && getFreeSpace() >= cnt;
     }
-    public void put(int count){
-        space += count;
+
+    public void put(int cnt) {
+        occupiedSpace += cnt;
     }
-    public int tryGetSum(int sum){
-        if(isEmpty()){
+
+    public int tryGetSum(int sum) {
+        if (isEmpty()) {
             return 0;
         }
-        final int notSum = (getBalance() > sum) ? sum: getBalance();
-        final int banknoteCount = notSum/nominal.getCost();
-        return banknoteCount * nominal.getCost();
-    }
-    public void cnt( int count){
-        if(count < 0)
-            throw new IllegalArgumentException("Должны быть банкноты. Сейчас" + count);
-        if (count > space)
-            throw new ATM_Exception("Недостаточно");
-        space -= count;
+        final int neededSum = (getBalance() > sum) ? sum : getBalance();
+        final int banknoteCnt = neededSum / banknoteNominal.getCost();
+        return banknoteCnt * banknoteNominal.getCost();
     }
 
-
-    public Nominal getBanknoteNominal(int cnt) {
+    public void get(int cnt) {
+        if (cnt < 0)
+            throw new IllegalArgumentException("Get banknote count must be positive. Now is " + cnt);
+        if (cnt > occupiedSpace)
+            throw new AtmException("Not enough space in cell");
+        occupiedSpace -= cnt;
     }
 }
