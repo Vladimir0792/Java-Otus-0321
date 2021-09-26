@@ -54,9 +54,9 @@ public class BanknoteCell {
 
     public void get(int cnt) {
         if (cnt < 0)
-            throw new IllegalArgumentException("Get banknote count must be positive. Now is " + cnt);
+            throw new IllegalArgumentException("Количество банкнот должно быть положительным. Сейчас: " + cnt);
         if (cnt > occupiedSpace)
-            throw new AtmException("Not enough space in cell");
+            throw new AtmException("Недостаточно места в ячейке");
         occupiedSpace -= cnt;
     }
 }
