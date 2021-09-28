@@ -3,7 +3,7 @@ package ATM;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Atm implements UserAction, StaffAction {
+public class Atm {
     private final List<BanknoteCell> cells = new ArrayList<>();
     private final CellManager cellManger = new CellManager();
 
