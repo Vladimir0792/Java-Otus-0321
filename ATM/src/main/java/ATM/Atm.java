@@ -18,24 +18,4 @@ public class Atm {
     public int getCellCnt() {
         return cells.size();
     }
-
-    @Override
-    public void put(Object[] banknotes) {
-        final var cntByCell = cellManger.tryPutToCells((BanknoteNominal[]) banknotes);
-        cellManger.putToCells(cntByCell);
-    }
-
-    @Override
-    public Object[] get(int sum) {
-        final var cntByCell = cellManger.tryGetFromCells(sum);
-        return cellManger.getFromCells(cntByCell);
-    }
-
-    @Override
-    public void putCell(BanknoteCell cell) {
-        cells.add(cell);
-        cells.sort((var m1, var m2) -> (m2.getBanknoteNominal().getCost() - m1.getBanknoteNominal().getCost()));
-        cellManger.setCells(cells);
-    }
-}
 }
