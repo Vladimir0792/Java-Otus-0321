@@ -15,6 +15,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/hw01-gradle" />
+            <option value="$PROJECT_DIR$/hw02-generics" />
+            <option value="$PROJECT_DIR$/hw03-test" />
+            <option value="$PROJECT_DIR$/hw04-gc" />
+            <option value="$PROJECT_DIR$/hw05-AOP" />
           </set>
         </option>
       </GradleProjectSettings>
