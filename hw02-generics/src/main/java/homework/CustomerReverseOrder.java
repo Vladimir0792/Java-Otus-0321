@@ -1,7 +1,8 @@
 package homework;
 
 
-import java.util.ArrayList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /*public class CustomerReverseOrder {
 
@@ -19,8 +20,6 @@ import java.util.ArrayList;
         // это "заглушка, чтобы скомилировать"
     }
 }*/
-import java.util.ArrayDeque;
-import java.util.Deque;
 
 public class CustomerReverseOrder {
 
