@@ -1,13 +1,12 @@
-package handler;
+package homework.src.test.java.ru.otus.handler;
 
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.otus.handler.ComplexProcessor;
-import ru.otus.listener.Listener;
-import ru.otus.model.Message;
-import ru.otus.processor.Processor;
-
+import homework.src.main.java.ru.otus.ru.otus.handler.ComplexProcessor;
+import homework.src.main.java.ru.otus.ru.otus.listener.Listener;
+import homework.src.main.java.ru.otus.ru.otus.model.Message;
+import homework.src.main.java.ru.otus.ru.otus.processor.Processor;
 import java.util.ArrayList;
 import java.util.List;
 
