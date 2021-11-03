@@ -1,7 +1,7 @@
-package ru.otus.handler;
+package homework.src.main.java.ru.otus.ru.otus.handler;
 
-import ru.otus.listener.Listener;
-import ru.otus.model.Message;
+import homework.src.main.java.ru.otus.ru.otus.listener.Listener;
+import homework.src.main.java.ru.otus.ru.otus.model.Message;
 
 public interface Handler {
     Message handle(Message msg);
