@@ -1,4 +1,4 @@
-package ru.otus.model;
+package homework.src.main.java.ru.otus.ru.otus.model;
 
 import java.util.List;
 
