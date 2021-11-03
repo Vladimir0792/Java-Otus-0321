@@ -1,4 +1,4 @@
-package ru.otus;
+package homework.src.main.java.ru.otus.ru.otus;
 
 public class HomeWork {
 
