@@ -1,8 +1,8 @@
-package processor;
+package homework.src.test.java.ru.otus.processor;
 
 
 import org.junit.jupiter.api.Test;
-import ru.otus.model.Message;
+import homework.src.main.java.ru.otus.ru.otus.model.Message;
 
 import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
