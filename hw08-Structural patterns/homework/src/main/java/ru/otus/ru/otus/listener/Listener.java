@@ -1,6 +1,6 @@
-package ru.otus.listener;
+package homework.src.main.java.ru.otus.ru.otus.listener;
 
-import ru.otus.model.Message;
+import homework.src.main.java.ru.otus.ru.otus.model.Message;
 
 public interface Listener {
 
