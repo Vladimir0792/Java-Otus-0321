@@ -1,12 +1,13 @@
-package ru.otus;
+package homework.src.main.java.ru.otus.ru.otus;
 
-import ru.otus.handler.ComplexProcessor;
-import ru.otus.listener.Listener;
-import ru.otus.listener.ListenerPrinterConsole;
-import ru.otus.model.Message;
-import ru.otus.processor.LoggerProcessor;
-import ru.otus.processor.ProcessorConcatFields;
-import ru.otus.processor.ProcessorUpperField10;
+import homework.src.main.java.ru.otus.ru.otus.handler.ComplexProcessor;
+import homework.src.main.java.ru.otus.ru.otus.listener.Listener;
+import homework.src.main.java.ru.otus.ru.otus.listener.ListenerPrinterConsole;
+import homework.src.main.java.ru.otus.ru.otus.model.Message;
+import homework.src.main.java.ru.otus.ru.otus.processor.LoggerProcessor;
+import homework.src.main.java.ru.otus.ru.otus.processor.ProcessorConcatFields;
+import homework.src.main.java.ru.otus.ru.otus.processor.ProcessorUpperField10;
+
 
 import java.util.List;
 
