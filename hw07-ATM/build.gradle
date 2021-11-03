@@ -2,10 +2,11 @@ plugins {
     id 'java'
     id 'com.github.johnrengelman.shadow'
 }
-
-sourceCompatibility = JavaVersion.VERSION_13
-targetCompatibility = JavaVersion.VERSION_13
-
+allprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 15
+    targetCompatibility = 15
+}
 dependencies {
     implementation 'com.google.guava:guava'
 }
@@ -17,5 +18,3 @@ shadowJar {
         attributes 'Main-Class': 'ru.otus.Main'
     }
 }
-
-tasks.build.dependsOn tasks.shadowJar
