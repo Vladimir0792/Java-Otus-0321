@@ -1,6 +1,6 @@
-package ru.otus.processor;
+package homework.src.main.java.ru.otus.ru.otus.processor;
 
-import ru.otus.model.Message;
+import homework.src.main.java.ru.otus.ru.otus.model.Message;
 
 
 
