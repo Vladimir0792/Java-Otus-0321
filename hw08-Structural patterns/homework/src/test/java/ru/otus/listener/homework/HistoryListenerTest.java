@@ -1,10 +1,10 @@
-package listener.homework;
+package homework.src.test.java.ru.otus.listener.homework;
 
 
 import org.junit.jupiter.api.Test;
-import ru.otus.listener.homework.HistoryListener;
-import ru.otus.model.Message;
-import ru.otus.model.ObjectForMessage;
+import homework.src.main.java.ru.otus.ru.otus.listener.homework.HistoryListener;
+import homework.src.main.java.ru.otus.ru.otus.model.Message;
+import homework.src.main.java.ru.otus.ru.otus.model.ObjectForMessage;
 
 import java.util.ArrayList;
 
