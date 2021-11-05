@@ -16,5 +16,3 @@ shadowJar {
     archiveVersion.set('0.1')
 }
 tasks.build.dependsOn tasks.shadowJar
-
-   

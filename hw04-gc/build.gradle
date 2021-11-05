@@ -7,9 +7,8 @@ allprojects {
     apply plugin: 'java'
     sourceCompatibility = 15
     targetCompatibility = 15
-}
-
-dependencies {
+ }
+    dependencies {
 }
 shadowJar {
     archiveBaseName.set('hw04')
