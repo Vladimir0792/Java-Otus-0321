@@ -12,7 +12,7 @@ allprojects {
 dependencies {
 }
 shadowJar {
-    archiveBaseName.set('hw04')
+    archiveBaseName.set('hw05')
     archiveVersion.set('0.1')
 }
 tasks.build.dependsOn tasks.shadowJar
