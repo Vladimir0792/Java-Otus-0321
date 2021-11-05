@@ -4,28 +4,15 @@ plugins {
 }
 
 allprojects {
-    group "ru.otus"
-
-    repositories {
-        mavenCentral()
-    }
-
-    apply plugin: "io.spring.dependency-management"
-    dependencyManagement {
-        dependencies {
-            imports {
-                mavenBom("org.springframework.boot:spring-boot-dependencies:2.2.6.RELEASE")
-            }
-            dependency("com.google.guava:guava:${Versions.GUAVA}")
-            dependency("org.glassfish:javax.json:${Versions.glassfishJson}")
-        }
-    }
+    apply plugin: 'java'
+    sourceCompatibility = 15
+    targetCompatibility = 15
 }
 
-task managedVersions {
-    doLast {
-        dependencyManagement.managedVersions.each {
-            println it
-        }
-    }
+dependencies {
 }
+shadowJar {
+    archiveBaseName.set('hw04')
+    archiveVersion.set('0.1')
+}
+tasks.build.dependsOn tasks.shadowJar
