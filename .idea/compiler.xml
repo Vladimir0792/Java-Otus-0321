@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="15" />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+      <entry name="!?*.ceylon" />
+    </wildcardResourcePatterns>
+    <bytecodeTargetLevel target="11">
+      <module name="L20-hibernate.main-demo" target="15" />
+      <module name="L20-hibernate.main-demo.main" target="15" />
+      <module name="L20-hibernate.main-demo.test" target="15" />
+      <module name="OtusJava03.hw09-hibernate.main" target="15" />
+      <module name="OtusJava03.hw09-hibernate.test" target="15" />
+    </bytecodeTargetLevel>
   </component>
 </project>
