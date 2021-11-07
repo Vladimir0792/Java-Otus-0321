@@ -1,27 +1,21 @@
-package homework.src.main.java.ru.otus.ru.otus.listener.homework;
+package ru.otus.listener.homework;
 
-import homework.src.main.java.ru.otus.ru.otus.model.Message;
-import homework.src.main.java.ru.otus.ru.otus.listener.Listener;
-
+import ru.otus.listener.Listener;
+import ru.otus.model.Message;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class HistoryListener implements Listener, HistoryReader {
+public class HistoryListener implements Listener, HistoryReader, Cloneable {
 
-    private final Map<Long,Message> history = new HashMap<>();
+    private final Map<Long, Message> history = new HashMap<>();
+    private Message copy;
 
 
     @Override
     public void onUpdated(Message msg) {
-        try{
-            history.put(msg.getId(),msg.clone());
-        }
-        catch (CloneNotSupportedException e){
-            e.printStackTrace();
-        }
-
+            history.put(msg.getId(), copy);
     }
         //throw new UnsupportedOperationException();
 
