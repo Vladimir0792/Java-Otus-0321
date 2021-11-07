@@ -1,6 +1,8 @@
 plugins {
     id 'idea'
+
     id 'com.github.johnrengelman.shadow'
+
 }
 
 allprojects {
@@ -12,7 +14,14 @@ allprojects {
 dependencies {
 }
 shadowJar {
+
     archiveBaseName.set('hw04')
     archiveVersion.set('0.1')
 }
 tasks.build.dependsOn tasks.shadowJar
+=======
+    archiveBaseName.set('hw05')
+    archiveVersion.set('0.1')
+}
+tasks.build.dependsOn tasks.shadowJar
+
