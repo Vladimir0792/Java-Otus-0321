@@ -19,9 +19,5 @@ shadowJar {
     archiveVersion.set('0.1')
 }
 tasks.build.dependsOn tasks.shadowJar
-=======
-    archiveBaseName.set('hw05')
-    archiveVersion.set('0.1')
-}
-tasks.build.dependsOn tasks.shadowJar
+
 
