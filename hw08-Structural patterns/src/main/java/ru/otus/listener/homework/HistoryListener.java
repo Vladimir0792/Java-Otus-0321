@@ -7,22 +7,21 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class HistoryListener implements Listener, HistoryReader, Cloneable {
+public class HistoryListener implements Listener, HistoryReader {
 
-    private final Map<Long, Message> history = new HashMap<>();
-    private Message copy;
+    private HashMap<Long, Message> history = new HashMap<>();
+    
 
 
     @Override
     public void onUpdated(Message msg) {
-            history.put(msg.getId(), copy);
+        history.put(msg.getId(), msg.copy());
+
     }
-        //throw new UnsupportedOperationException();
 
     @Override
     public Optional<Message> findMessageById(long id) {
-        return Optional.of(history.get(id));
-
-        //throw new UnsupportedOperationException();
+        return Optional.ofNullable(history.get(id));
     }
+
 }
