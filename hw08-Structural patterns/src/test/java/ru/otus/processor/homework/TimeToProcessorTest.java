@@ -2,33 +2,53 @@ package ru.otus.processor.homework;
 
 import org.junit.jupiter.api.Test;
 import ru.otus.model.Message;
+import ru.otus.processor.Processor;
 
-import java.io.InterruptedIOException;
+import java.io.IOException;
+import java.time.*;
 
-import static org.assertj.core.api.Assertions.assertThatNoException;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 class TimeToProcessorTest {
 
-        private final Message message = new Message.Builder(1L).build();
+    @Test
+    void processEven() {
+        var evenSecond = 0L;
+        var message = getMessage();
+        var processor = getProcessor(evenSecond);
 
-        @Test
-        void shouldThrow() throws InterruptedIOException {
-            var timeM = 1L;
-            var processor = new TimeToProcessor();
-            Runnable code = () -> processor.process(message);
+        Throwable thrown = assertThrows(DateTimeException.class, () -> {
+            processor.process(message);
+        });
 
-            assertThatThrownBy(code::run).isInstanceOf(IllegalStateException.class);
-        }
-
-        @Test
-        void shouldNotThrow() throws InterruptedIOException {
-            var timeM = 2L;
-            var processor = new TimeToProcessor();
-            Runnable code = () -> processor.process(message);
-
-            assertThatNoException().isThrownBy(code::run);
-        }
+        assertNotNull(thrown.getMessage());
     }
+
+    @Test
+    void processNotEven() throws IOException {
+
+        var notAccident = 1L;
+        var message = getMessage();
+        var processor = getProcessor(notAccident);
+
+        assertNotNull(processor.process(message));
+    }
+
+    private Processor getProcessor(Long second) {
+
+        var processor = new TimeToProcessor();
+        var instant = Instant.ofEpochSecond(second);
+        processor.setInstant(instant);
+
+        return processor;
+    }
+
+    private Message getMessage() {
+
+        var id = 1L;
+        var message = new Message.Builder(id).build();
+        return message;
+    }
+}
+
 
