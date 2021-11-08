@@ -1,5 +1,8 @@
 package ru.otus.model;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Message implements Cloneable {
     private final long id;
     private final String field1;
