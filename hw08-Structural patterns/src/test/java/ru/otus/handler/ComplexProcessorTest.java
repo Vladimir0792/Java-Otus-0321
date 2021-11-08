@@ -11,6 +11,7 @@ import ru.otus.processor.Processor;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class ComplexProcessorTest {
 
