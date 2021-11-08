@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class ComplexProcessor implements Handler {
+
+  public class ComplexProcessor implements Handler {
 
     private final List<Listener> listeners = new ArrayList<>();
     private final List<Processor> processors;
@@ -25,8 +26,8 @@ public class ComplexProcessor implements Handler {
         for (Processor pros : processors) {
             try {
                 newMsg = pros.process(newMsg);
-            } catch (Exception ex) {
-                errorHandler.accept(ex);
+            } catch (Exception e) {
+                errorHandler.accept(e);
             }
         }
         notify(newMsg);
