@@ -134,6 +134,16 @@ public class Message implements Cloneable {
                 ", field12='" + field12 + '\'' +
                 ", field13='" + field13 + '\'' + '}';
     }
+    
+    public Message copy() {
+        Builder bld = this.toBuilder();
+        if(Objects.nonNull(field13)){
+            ObjectForMessage f13Copy = new ObjectForMessage();
+            f13Copy.setData(new ArrayList<>(field13.getData()));
+            bld.field13(f13Copy);
+        }
+        return bld.build();
+    }
 
     public static class Builder {
         private long id;
