@@ -38,7 +38,7 @@ class TimeToProcessorTest {
 
         var processor = new TimeToProcessor();
         var instant = Instant.ofEpochSecond(second);
-        processor.setInstant(instant);
+        TimeToProcessor.Instant instant1 = () -> 0;
 
         return processor;
     }
