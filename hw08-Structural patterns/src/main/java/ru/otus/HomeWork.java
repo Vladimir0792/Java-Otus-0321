@@ -18,9 +18,8 @@ import java.util.List;
 public class HomeWork {
 
     public static void main(String[] args) {
-        List<Processor> processors = List.of(new TimeToProcessor(), new LoggerProcessor(new ProcessorConcatFields()), new LoggerProcessor(new ProcessorUpperField10()),
-                new LoggerProcessor(new ProcessorField11and12()), new TimeToProcessor());
-
+        var processors = List.of(new ProcessorField11and12(),new TimeToProcessor());
+        
         ComplexProcessor complexProcessor = new ComplexProcessor(processors, e -> System.err.println(e));
 
         ListenerPrinterConsole listenerPrinter = new ListenerPrinterConsole();
