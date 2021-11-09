@@ -3,31 +3,32 @@ package ru.otus.processor.homework;
 import ru.otus.model.Message;
 import ru.otus.processor.Processor;
 
-import java.time.Clock;
-import java.time.DateTimeException;
-import java.time.Instant;
-import java.util.Optional;
+import java.time.*;
+
+
 
 public class TimeToProcessor implements Processor {
 
-    private Instant instant;
+    private final LocalDateTime time = LocalDateTime.now();
 
-    public Instant getInstant() {
-        return instant;
-    }
 
-    public void setInstant(Instant instant) {
-        this.instant = instant;
+
+    public TimeToProcessor() {
+
     }
 
     @Override
     public Message process(Message message) {
 
-        if (Optional.ofNullable(instant).orElse(Clock.systemUTC().instant()).getEpochSecond() % 2 == 0) {
-            throw new DateTimeException("Процесс идет в четную секунду");
+        if (time.getSecond() % 2 == 0) {
+
+            throw new NullPointerException("Процесс идет в четную секунду");
         }
 
         return message;
+    }
+    interface Instant{
+        int getSecond();
     }
 
 }
