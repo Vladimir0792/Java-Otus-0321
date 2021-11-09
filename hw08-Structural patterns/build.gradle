@@ -25,7 +25,6 @@ test {
     testLogging {
         events "passed", "skipped", "failed"
     }
-    useTestNG()
 }
 
 tasks.withType(JavaCompile) {
