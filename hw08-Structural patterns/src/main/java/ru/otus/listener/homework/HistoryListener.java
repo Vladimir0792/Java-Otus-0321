@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public class HistoryListener implements Listener, HistoryReader {
 
-    private HashMap<Long, Message> history = new HashMap<>();
+    private final HashMap<Long, Message> history = new HashMap<>();
     
 
 
