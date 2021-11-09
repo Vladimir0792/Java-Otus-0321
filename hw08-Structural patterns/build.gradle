@@ -15,8 +15,7 @@ dependencies {
     testImplementation ('org.assertj:assertj-core')
     testImplementation ('org.mockito:mockito-core')
     testImplementation ('org.mockito:mockito-junit-jupiter')
-    // https://mvnrepository.com/artifact/org.assertj/assertj-core
-    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.21.0'
+    testImplementation ( 'org.assertj:assertj-core')
 }
 
 
