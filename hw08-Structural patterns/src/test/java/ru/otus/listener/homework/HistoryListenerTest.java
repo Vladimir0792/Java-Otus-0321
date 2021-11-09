@@ -34,7 +34,7 @@ class HistoryListenerTest {
 
         //then
         var messageOfHistory = historyListener.findMessageById(id);
-        assertThat((messageOfHistory).isPresent());
+        assertThat(messageOfHistory).isPresent();
 
     }
 }
